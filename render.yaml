@@ -1,3 +1,7 @@
+static:
+  publish:
+    - path: /
+      destination: /index.html
 rewrites:
   - source: /*
     destination: /index.html
