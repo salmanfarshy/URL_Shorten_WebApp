@@ -39,7 +39,7 @@ const LandingPage = () => {
         <Button
           type="submit"
           onClick={() => ref.current?.focus()}
-          className="h-full bg-red-800 text-white md:text-lg text-base font-bold hover:bg-red-400 hover:translate-y-[0.5px]"
+          className="h-full bg-red-600 text-white md:text-lg text-base font-bold hover:bg-red-400 hover:translate-y-[0.5px]"
         >
           Shorten
         </Button>
