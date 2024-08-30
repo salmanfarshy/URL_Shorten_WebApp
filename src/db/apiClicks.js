@@ -48,7 +48,7 @@ export const storeClicks = async ({ id, originalUrl }) => {
     const res = parser.getResult();
     const device = res.type || "desktop";
     // console.log("ok");
-    const response = await axios.get("https://ipapi.co/json/");
+    const response = await axios.get("/api/json/");
     const { city, country_name: country } = response.data;
     // const city = "Dhaka";
     // const country = "Italy";

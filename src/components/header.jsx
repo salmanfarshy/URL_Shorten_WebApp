@@ -40,7 +40,10 @@ const Header = () => {
             <DropdownMenu>
               <DropdownMenuTrigger className="w-10 h-9 bg-gray-500 ring-2 ring-cyan-800 rounded-full overflow-hidden">
                 <Avatar>
-                  <AvatarImage src={user?.user_metadata?.profile_pic} />
+                  <AvatarImage
+                    className="scale-110"
+                    src={user?.user_metadata?.profile_pic}
+                  />
                   <AvatarFallback className="font-semibold">PA</AvatarFallback>
                 </Avatar>
               </DropdownMenuTrigger>

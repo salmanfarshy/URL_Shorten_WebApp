@@ -91,7 +91,7 @@ const Signup = () => {
       <CardHeader>{error && <Error message={error?.message} />}</CardHeader>
       <CardContent className="space-y-4">
         <div className="space-y-1">
-          <span>Name</span>
+          <span className="font-semibold">Name</span>
           <Input
             name="name"
             type="text"
@@ -101,7 +101,7 @@ const Signup = () => {
         </div>
         {errors.name && <Error message={errors.name} />}
         <div className="space-y-1">
-          <span>Email</span>
+          <span className="font-semibold">Email</span>
           <Input
             name="email"
             type="email"
@@ -111,7 +111,7 @@ const Signup = () => {
         </div>
         {errors.email && <Error message={errors.email} />}
         <div className="space-y-1">
-          <span>Password</span>
+          <span className="font-semibold">Password</span>
           <Input
             name="password"
             type="password"

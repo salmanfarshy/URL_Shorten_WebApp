@@ -71,7 +71,7 @@ const Login = () => {
       <CardHeader>{error && <Error message={error.message} />}</CardHeader>
       <CardContent className="space-y-4">
         <div className="space-y-1">
-          <span>Email</span>
+          <span className="font-semibold">Email</span>
           <Input
             name="email"
             type="email"
@@ -81,7 +81,7 @@ const Login = () => {
         </div>
         {errors.email && <Error message={errors.email} />}
         <div className="space-y-1">
-          <span>Password</span>
+          <span className="font-semibold">Password</span>
           <Input
             name="password"
             type="password"
