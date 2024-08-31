@@ -1,5 +1,6 @@
 import Header from "@/components/header";
 import { Toaster } from "@/components/ui/toaster";
+import ScrollToTop from "@/pages/ScrollToTop";
 import { Outlet } from "react-router-dom";
 
 const AppLayout = () => {
@@ -13,6 +14,7 @@ const AppLayout = () => {
       <div className="px-10 md:py-5 py-3 text-center font-medium md:text-lg bg-gray-800 mt-10">
         Made with <span className="md:text-xl">✌</span> by Salman Farshi.
       </div>
+      <ScrollToTop />
     </div>
   );
 };

@@ -11,6 +11,7 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { BarLoader, BeatLoader } from "react-spinners";
 import { useToast } from "@/components/ui/use-toast";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const LinkPage = () => {
   const ref = useRef(null);
@@ -208,12 +209,15 @@ const LinkPage = () => {
           <span className="flex items-end font-medium text-gray-200 md:text-base text-sm">
             {new Date(url?.created_at).toLocaleString()}
           </span>
-
-          <img
-            src={url?.qr}
-            className="md:w-3/5 md:mt-8 mt-5 self-start ring ring-blue-500 p-1 object-contain"
-            alt="qr code"
-          />
+          {loading ? (
+            <Skeleton className="lg:w-64 lg:h-64 md:w-40 md:h-40 w-64 h-64 rounded-none" />
+          ) : (
+            <img
+              src={url?.qr}
+              className="md:w-3/5 md:mt-8 mt-5 self-start ring ring-blue-500 p-1 object-contain"
+              // alt="qr code"
+            />
+          )}
         </div>
 
         <Card className="sm:w-3/5">

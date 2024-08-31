@@ -44,10 +44,10 @@ const LandingPage = () => {
           Shorten
         </Button>
       </form>
-      <img
-        src="/TrimUrl.jpeg" // replace with 2 in small screens
-        className="w-5/6 my-11 md:px-11 md:mt-16 mt-8"
-      />
+      <div className="w-5/6 lg:h-[500px] md:h-[400px] h-[250px] my-11 md:px-11 lg:mt-16 md:mt-12 mt-8">
+        <img src="/TrimUrl.jpeg" className="w-full h-full" />
+      </div>
+
       <Accordion
         type="multiple"
         collapsible

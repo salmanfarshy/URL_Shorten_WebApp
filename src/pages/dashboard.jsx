@@ -1,6 +1,6 @@
 // can add sonner from shadcn ui after link created
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BarLoader } from "react-spinners";
 import { Filter } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -15,6 +15,7 @@ import { UrlState } from "@/context";
 
 const Dashboard = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const ref = useRef(null);
   const { user } = UrlState();
   const { loading, error, data: urls, fn: fnUrls } = useFetch(getUrls, user.id);
   const {
@@ -25,6 +26,18 @@ const Dashboard = () => {
     getClicksForUrls,
     urls?.map((url) => url.id)
   );
+
+  useEffect(() => {
+    const handleOutSideClick = (event) => {
+      if (!ref.current?.contains(event.target)) setSearchQuery("");
+    };
+
+    window.addEventListener("mousedown", handleOutSideClick);
+
+    return () => {
+      window.removeEventListener("mousedown", handleOutSideClick);
+    };
+  }, [ref]);
 
   useEffect(() => {
     fnUrls();
@@ -70,6 +83,7 @@ const Dashboard = () => {
       </div>
       <div className="relative mb-5">
         <Input
+          ref={ref}
           type="text"
           className="bg-gray-900"
           placeholder="Filter Links..."

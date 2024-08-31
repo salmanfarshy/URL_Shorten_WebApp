@@ -7,6 +7,7 @@ import { BeatLoader } from "react-spinners";
 import TooltipBtn from "@/components/TooltipBtn";
 import { useRef, useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const LinkCard = ({ url = [], fetchUrls, fetchClicks }) => {
   const [isCopied, setIsCopied] = useState(false);
@@ -65,16 +66,23 @@ const LinkCard = ({ url = [], fetchUrls, fetchClicks }) => {
     qr_url: url?.qr,
   });
 
+  // if (url) console.log("suck!");
+
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col md:flex-row gap-5 border p-4 bg-gray-900 rounded-lg hover:translate-y-[0.6px] hover:translate-x-[0.6px]">
+    <div className="flex flex-col md:flex-row gap-5 border p-4 bg-gray-900 rounded-lg hover:translate-y-[0.6px] hover:translate-x-[0.6px] w-full h-42">
       <div className="flex justify-between">
-        <img
-          src={url?.qr}
-          className="h-32 object-contain ring ring-blue-500 self-start"
-          alt="qr code"
-        />
+        {url ? (
+          <img
+            src={url?.qr}
+            className="h-32 w-32 object-contain ring ring-blue-500 self-start"
+            alt="qr code"
+          />
+        ) : (
+          <Skeleton className="h-32 w-32 rounded-none" />
+        )}
+
         <div className="flex gap-2 md:hidden">
           <div
             ref={copyTextRef}
@@ -138,10 +146,15 @@ const LinkCard = ({ url = [], fetchUrls, fetchClicks }) => {
           {url?.title}
         </span>
 
-        <span className="text-xl text-blue-400 mt-2 font-bold">
+        <span className="text-xl text-blue-400 mt-2 font-bold flex gap-2 items-center">
           <span className="text-white font-bold">Short URL: </span>
-          https://trimrr.in/
-          {url?.short_url}
+          {url ? (
+            "https://trimrr.in/" + url?.short_url
+          ) : (
+            <span>
+              <Skeleton className="h-6 w-44 rounded-none" />
+            </span>
+          )}
         </span>
 
         <span className="mt-3 text-sm text-gray-300">Created Date:</span>
